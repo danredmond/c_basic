@@ -1,0 +1,6 @@
+10 DIM A[1]
+20 FOR I = 1 to 100
+25 A[I] = I * 2
+30 PRINT A[I]
+40 NEXT I
+50 END

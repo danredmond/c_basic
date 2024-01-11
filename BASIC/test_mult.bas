@@ -1,0 +1,11 @@
+10 PRINT "x = 6, y = 7"
+20 X = 6
+30 Y = 7
+40 PRINT "x * y = Z="
+50 Z = X * Y
+60 PRINT Z
+70 IF Z = 42 THEN GOTO 100
+80 PRINT "Z is not 42"
+90 END
+100 PRINT "Z is 42"
+110 END

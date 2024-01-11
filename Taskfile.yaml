@@ -1,0 +1,70 @@
+version: 3
+
+env:
+  CCC: clang++
+  BINARY: c_basic
+
+tasks:
+  compile:
+    desc: Compile with clang
+    cmds:
+      - |
+        mkdir -p obj
+        cd obj
+        {{.CCC}} -w -g -O3 -flto=full -c ../src/*.c
+
+  link:
+    desc: Link with clang
+    cmds:
+      - |
+        mkdir -p bin
+        cd bin
+        {{.CCC}} -g -Wl,-object_path_lto,m_basic.o -o {{.BINARY}} ../obj/*.o
+        cd ..
+        ln -f -s bin/{{.BINARY}}
+
+  build:
+    desc: Build (Compile + Link)
+    cmds:
+      - task: compile
+      - task: link
+
+  test:
+    desc: Test simple functionality
+    deps: [build]
+    cmds:
+      - |
+        ./{{.BINARY}} BASIC/hello.bas
+
+  tests:
+    desc: Run test suite
+    deps: [build]
+    cmds:
+      - |
+        ./{{.BINARY}} BASIC/hello.bas
+        ./{{.BINARY}} BASIC/test_mult.bas
+        # ./{{.BINARY}} BASIC/heapsort.bas
+
+  clean:
+    desc: Clean all generate files
+    cmds:
+      - |
+        rm -f "{{.BINARY}}"
+        rm -rf bin
+        rm -rf obj
+        rm -f *.o
+        rm -f *.dat
+        rm -f *.log
+
+  run:
+    desc: Run full dev process
+    cmds:
+      - task: clean
+      - task: build
+      - task: test
+
+  list:
+    desc: List all tasks
+    cmds:
+      - |
+        task --list
