@@ -45,7 +45,7 @@ Expected output:
 
 ```bash
 
- *** c_basic ***
+c_basic:
 HELLO WORLD
 
 ```
