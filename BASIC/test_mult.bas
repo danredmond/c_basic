@@ -1,7 +1,7 @@
 10 PRINT "x = 6, y = 7"
 20 X = 6
 30 Y = 7
-40 PRINT "x * y = Z="
+40 PRINT "Z = x * y"
 50 Z = X * Y
 60 PRINT Z
 70 IF Z = 42 THEN GOTO 100
