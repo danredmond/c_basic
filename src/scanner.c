@@ -425,7 +425,7 @@ char *Scanner::scan(Tokentype &t)
         goto Finish;
     } // equal sign
 
-    /* t = UNKNOWN *q = '\0';*/ // moved to top           // something else
+    /* t = UNKNOWN *q = '\0';*/ // moved to top
     if (t == UNKNOWN)
         *n = '\0';
 

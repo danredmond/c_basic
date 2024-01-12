@@ -381,7 +381,8 @@ int Parser::ntstmt()
 
         if (!(matchtoken(Scanner::NEXT)))
             return (0);
-        /* could remove */ if (!(matchtoken(Scanner::IDENT))) // errchking?
+        /* could remove */
+        if (!(matchtoken(Scanner::IDENT))) // errchking?
             return (0);
 
         forexit = 1; // resets the loop;
@@ -626,7 +627,8 @@ int Parser::ntassign()
         strcpy(oldtokstr, tokstring);
         if (!(matchtoken(Scanner::INTLIT)))
             return (0);
-        /* ADD TO STACK */ if (!(T.push(atof(oldtokstr))))
+        /* ADD TO STACK */
+        if (!(T.push(atof(oldtokstr))))
         {
             std::cout << "\nSTACK FULL: ntassign\n";
             return (0);
@@ -699,7 +701,8 @@ int Parser::ntassign()
         if (!(matchtoken(Scanner::IDENT)))
             return (0);
 
-        /* ADD TO STACK */ fltemp = T.getdata(attr.loc);
+        /* ADD TO STACK */
+        fltemp = T.getdata(attr.loc);
         if (!(T.push(fltemp)))
         {
             std::cout << "\nSTACK FULL: ntassign\n";
