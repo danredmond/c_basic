@@ -3,6 +3,8 @@
 ~ Parser output is in file parse.dat
 ~ Symbol table output is in file symbol.dat
 ~
+~ TODO: Implement RND() function and use it instead of lines 220-250
+~
 1 RNUMFSEED = 10
 2 RNUMINCR  = 7
 3 RNUMMAX   = 13

@@ -10,7 +10,6 @@ static char tokstring[255];
 
 class Parser
 {
-
 public:
     enum NTtype
     { // List of all Non-Terminals

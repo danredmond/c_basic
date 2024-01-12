@@ -60,7 +60,6 @@ Parser::Parser(char *fname)
 
             if (nextoken == Scanner::LNUM)
                 if (T.install(tokstring, Symbol::LINENUM, lines) == 0)
-
                 {
                     std::cout << "symbol table error: line number\n";
                     exit(0);
@@ -79,7 +78,6 @@ int Parser::parse()
     if (matchnterm(PROGRAM))
     {
         myout << "\nParse: no grammer errors found\n";
-        //	std::cout << "\nParse: no grammer errors found\n";
         T.dump();   // outputs the symbol table
         return (1); // parse = true;
     }
@@ -88,7 +86,6 @@ int Parser::parse()
         if (Parser::end_flag == 0)
         {
             myout << "\nParse: error on " << newinst;
-            //	   std::cout << "\nParse: error on " << newinst;
         }
         return (0); // parse = false;
     }
@@ -209,8 +206,8 @@ int Parser::ntlineblock() // error tracking here ******
         if (newinst > lines)
         {
             go_flag = FALSE;
-            myout << "Execution complete";
-            std::cout << "Execution complete";
+            myout << "Ran out of lines to process - Execution complete";
+            // std::cout << "Execution complete";
         }
         else
         {
@@ -295,7 +292,6 @@ int Parser::ntstmt()
     {
     case Scanner::IDENT:
         T.lookup(tokstring, attr);
-        //////
         strcpy(oldtokstr, tokstring);
         if (!(matchtoken(Scanner::IDENT)))
             return (0);
