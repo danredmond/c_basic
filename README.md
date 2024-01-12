@@ -54,7 +54,7 @@ HELLO WORLD
 
 ### To Do Items
 
-1. Compile with optimizations, LTO, LLVM linking
+1. ✅ Compile with optimizations, LTO, LLVM linking
 2. Let `PRINT` statements take multiple values separated by `,` or `;`
 3. Implement `RND` and other numerics
 4. Make simple Bubble Sort
