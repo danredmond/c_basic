@@ -2,7 +2,7 @@
 
 An implementation of an interpreter for a subset of Darthmouth-BASIC language
 
-* BASIC = Beginners All-Purpose Symoblic Instruction Code
+* BASIC = Beginners All-Purpose Symbolic Instruction Code
 * Written in C with some C++ I/O and classes
 
 ## Installation
