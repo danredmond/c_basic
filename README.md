@@ -50,6 +50,31 @@ HELLO WORLD
 
 ```
 
+## Language support
+
+### Grammar
+
+Backus-Naur form
+
+| Symbol        | Expression |
+| ------------- | ---------- |
+| `<program>`   | `<lineblock>` |
+| `<lineblock>` | `<line> (<lineblock>)` |
+| `<line>`      | `LNUM <stmtlist>` |
+| `<stmtlist>`  | `<stmt> (COLON <stmt>)` |
+| `<stmt>`      | `IDENT EQUAL <assign>` |
+| `<stmt>`      | `PRINT <printlist>` |
+| `<stmt>`      | `FOR <forindex> TO INTLIT <lineblock> NEXT IDENT` |
+| `<stmt>`      | `INPUT IDENT` |
+| `<stmt>`      | `DIM IDENT` |
+| `<stmt>`      | `IF IDENT EQUAL INTLIT THEN <stmt>` |
+| `<stmt>`      | `END` |
+| `<assign>`    | `O_PAREN <assign> C_PAREN ([PLUS`&#124;`MINUS`&#124;`MULT`&#124;`DIV]`  `<assign>)` |
+| `<assign>`    | `[INTLIT`&#124;`IDENT] ([PLUS`&#124;`MINUS`&#124;`MULT`&#124;`DIV] <assign>)` |
+| `<printlist>` | `QUOTE STRING QUOTE`&#124;`IDENT (,STRING`&#124;`IDENT,...)` |
+| `<forindex>`  | `IDENT EQUAL <assignment>` |
+
+
 ## Development
 
 ### To Do Items

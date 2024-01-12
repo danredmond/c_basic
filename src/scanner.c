@@ -1,5 +1,3 @@
-// ---------------- implementation file "scanner.C"
-
 #include "scanner.h"
 
 int shrink(char *dest, char *src, int start)

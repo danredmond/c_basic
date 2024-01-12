@@ -1,23 +1,22 @@
-// implementation file parser.c
-// note: bnf grammer is at the end
+// NOTE: Supported grammer in Backus-Naur form
+// ===========================================
+// <program> -> <lineblock>
+// <lineblock> -> <line> (<lineblock)
+// <line> -> LNUM <stmtlist>
+// <stmtlist> -> <stmt> (COLON <stmt>)
+// <stmt> -> IDENT EQUAL <assign>
+// <stmt> -> PRINT <printlist>
+// <stmt> -> FOR <forindex> TO INTLIT <lineblock> NEXT IDENT
+// <stmt> -> INPUT IDENT
+// <stmt> -> DIM IDENT
+// <stmt> -> IF IDENT EQUAL INTLIT THEN <stmt>
+// <stmt> -> END
+// <assign> -> O_PAREN <assign> C_PAREN ([PLUS|MINUS|MULT|DIV] <assign>)
+// <assign> -> [INTLIT|IDENT] ([PLUS|MINUS|MULT|DIV] <assign>)
+// <printlist> -> QUOTE STRING QUOTE|IDENT (,STRING|IDENT,...)
+// <forindex> -> IDENT EQUAL <assignment>
 
 #include "parser.h"
-
-//<program> -> <lineblock>
-//<lineblock> -> <line> (<lineblock)
-//<line> -> LNUM <stmtlist>
-//<stmtlist> -> <stmt> (COLON <stmt>),...  // maybe take out colon's
-//<stmt> -> IDENT EQUAL <assign>
-//<stmt> -> PRINT <printlist>
-//<stmt> -> FOR <forindex> TO INTLIT <lineblock> NEXT IDENT
-//<stmt> -> INPUT IDENT
-//<stmt> -> DIM IDENT
-//<stmt> -> IF IDENT EQUAL INTLIT THEN <stmt>
-//<stmt> -> END
-//<assign> -> O_PAREN <assign> C_PAREN ([PLUS|MINUS|MULT|DIV]) <assign>)
-//<assign> -> [INTLIT|IDENT] ([PLUS|MINUS|MULT|DIV] <assign>)
-//<printlist> -> QUOTE STRING QUOTE|IDENT (,STRING|IDENT,...)
-//<forindex> -> IDENT EQUAL <assignment>
 
 Parser::Parser(char *fname)
 {
